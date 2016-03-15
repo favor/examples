@@ -1,0 +1,32 @@
+{
+  "author": "Pete Field aka. PedalPete",
+  "name": "favor-examples",
+  "description": "Samples for how to use favor https://npmjs.com/package/favor",
+  "version": "0.0.1",
+  "main": "./index.js",
+  "keywords": [
+    "IoT",
+    "it",
+    "favor",
+	"example",
+	"demo"
+  ],
+  "scripts": {
+    "test": "envade DEVICE_MOCK_PATH=../../tests/mocks/ -- jasmine-node tests --autotest --watch ."
+  },
+  "dependencies": {
+    "favor": *
+  },
+  "devDependencies": {
+    "envade": "^1.0.3",
+    "fs-extra": "*",
+    "gulp": "^3.9.0",
+    "gulp-jscs": "^2.0.0",
+    "gulp-jshint": "^1.11.2",
+    "jasmine-node": "latest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/favor/favor-examples.git"
+  }
+}
