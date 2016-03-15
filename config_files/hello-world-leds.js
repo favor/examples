@@ -32,7 +32,7 @@ function blinkMInput(c) {
 function apa102Input(c) {
 	if(c === 1) return [0xff, 0xff, 0xff, 0xff];
 	if(c === 0) return [0xff, 0x00, 0x00, 0x00];
-	return [0xff, hexToString(c[0]), hexToString(c[1]), hexToString(c[2])];
+	return [0xff, toHex(c[0]), toHex(c[1]), toHex(c[2])];
 }
 
 module.exports = {
