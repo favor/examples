@@ -23,11 +23,9 @@ function triGpioColor(c) {
 
 // formats the input to be received by the blinkM led
 function blinkMInput(c) {
-	console.log('blinkm', c)
 	if(c === 1) return [255, 255, 255];
 	if(c === 0) return [0, 0, 0];
-	console.log('should not get here');
-	return [val[0] ,val[1],val[2]];
+	return [c[0] ,c[1],c[2]];
 }
 
 // formats the input to be received by a 5050led (apa102)

@@ -2,7 +2,7 @@
   "author": "Pete Field aka. PedalPete",
   "name": "favor-examples",
   "description": "Samples for how to use favor https://npmjs.com/package/favor",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "./index.js",
   "keywords": [
     "IoT",
