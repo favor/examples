@@ -29,10 +29,15 @@ function blinkMInput(c) {
 }
 
 // formats the input to be received by a 5050led (apa102)
-function apa102Input(c) {
-	if(c === 1) return [0xff, 0xff, 0xff, 0xff];
-	if(c === 0) return [0xff, 0x00, 0x00, 0x00];
-	return [0xff, toHex(c[0]), toHex(c[1]), toHex(c[2])];
+var apaIdx = 0;
+function apa102Input(c, idx) {
+	var val;
+	if(c === 1) val = 0xff;
+	if(c === 0) val = 0x00;
+	val = toHex(c[apaIdx]);
+	if(adaIdx < 2) apaIdx++;
+	else apaIdx = 0;
+	return val;
 }
 
 module.exports = {
@@ -47,9 +52,12 @@ module.exports = {
 		{type:"led",path: 1, address: 0x09, "name":"blinkm",
 		interface: "i2c",
 		init: {type: 'write', cmd: 0x6f},
-		set:{type:'write', cmd:0x6e , formatInput: blinkMInput}},
-		{type: "led", interface: 'spi', name: 'apa102',
+		set:{type: 'write', cmd:0x6e , formatInput: blinkMInput}},
+		{type: "led", interface: "spi", name: "apa102",
 		address: "/dev/spidev0.0", set: [
-		{val: [0x00, 0x00, 0x00, 0x00]}, {formatInput: apa102Input}]}
+		{val: 0x00}, {val: 0x00}, {val:0x00}, {val: 0x00}, {val: 0xff},
+		{formatInput: apa102Input},
+		{formatInput: apa102Input},
+		{formatInput: apa102Input}]}
 	]
 };
