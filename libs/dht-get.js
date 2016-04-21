@@ -1,24 +1,17 @@
-var sensorLib = require('node-dht-sensor');
-
-var sensor = {
-	initialize: function(cmp) {
-		return sensorLib.initialize(cmp.chipid, cmp.address);
-	},
-	read: function() {
-		var readout = sensorLib.read();
-		return {
-			'temperature': readout.temperature.toFixed(1),
-			'humidity': readout.humidity.toFixed(1)
-		};
-	}
-};
+var sensorLib = require('raspi-sensors');
+var sensor;
 
 function getSensor(component) {
-	if (sensor.initialize(component)) {
-		return sensor.read();
-	} else {
-		console.warn('Failed to initialize sensor');
-	}
+	if (!!component.initialized) {
+		sensor = new sensorLib({
+			type: "DHT22",
+			pin: component.address
+		});
+	}		
+	sensor.fetch(function(err, data) {
+		if (err) return err;
+		return data
+	});
 }
 
 module.exports = getSensor;

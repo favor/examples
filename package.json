@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "favor": "*",
-    "node-dht-sensor": "*"
+    "raspi-sensors": "*"
   },
   "devDependencies": {
     "envade": "^1.0.3",
