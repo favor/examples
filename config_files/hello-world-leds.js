@@ -38,7 +38,7 @@ function apa102Input(c, cmd) {
 
 module.exports = {
     "name":"hello-world-leds",
-    "i2c_path": '/dev/i2c-1',
+    "i2c-path": '/dev/i2c-1',
     "components" : [{"type":"led", "name":"blue", "direction": "out",
 		"address":17, "interface": "gpio", "formatInput" : triGpioColor},
         {"type":"led","name":"green", "address":27, "direction": "out",
