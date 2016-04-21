@@ -15,7 +15,8 @@
     "test": "envade DEVICE_MOCK_PATH=../../tests/mocks/ -- jasmine-node tests --autotest --watch ."
   },
   "dependencies": {
-    "favor": "*"
+    "favor": "*",
+    "node-dht-sensor": "*"
   },
   "devDependencies": {
     "envade": "^1.0.3",
