@@ -15,7 +15,7 @@
     "test": "envade DEVICE_MOCK_PATH=../../tests/mocks/ -- jasmine-node tests --autotest --watch ."
   },
   "dependencies": {
-    "favor": "*",
+    "favor": "https://github.com/favor/it.git",
     "raspi-sensors": "*"
   },
   "devDependencies": {
