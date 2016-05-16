@@ -17,8 +17,7 @@ function getHumidTemp(buf) {
 }
 
 module.exports = {
-    "name":"Test-Temperature",
-    "gpio-path": "tests/gpio-test/class/gpio",
+    "name":"watch",
     "i2c-bus": 1,
     "components" : [
        {"type": "link", name: "HiH-6130", "address": 0x27, "interface": "i2c", 
@@ -27,6 +26,8 @@ module.exports = {
          ], formatOutput: getHumidTemp
        },
       {"type": "temperature", "link": "HiH-6130", "returnAs": "temperature"},
-      {"type": "humidity", "link": "HiH-6130", "returnAs": "humidity"}
+      {"type": "humidity", "link": "HiH-6130", "returnAs": "humidity"},
+      {"type": "button", "address": 18, "direction": "in", "edge": "both", "interface": "gpio",
+       "debounce": 100}
     ]
 }
