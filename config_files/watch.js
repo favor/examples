@@ -18,7 +18,6 @@ function getHumidTemp(buf) {
 
 module.exports = {
     "name":"watch",
-    "gpio-path": "tests/gpio-test/class/gpio",
     "i2c-bus": 1,
     "components" : [
        {"type": "link", name: "HiH-6130", "address": 0x27, "interface": "i2c", 
